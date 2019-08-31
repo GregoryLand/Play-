@@ -22,7 +22,7 @@ namespace Ui
 
 #ifdef DEBUGGER_INCLUDED
 class CDebugger;
-class CFrameDebugger;
+//class CFrameDebugger;
 
 namespace Ui
 {
@@ -31,10 +31,10 @@ namespace Ui
 #endif
 
 class MainWindow : public QMainWindow
-#ifdef DEBUGGER_INCLUDED
-    ,
-                   public QAbstractNativeEventFilter
-#endif
+//#ifdef DEBUGGER_INCLUDED
+//    ,
+//                   public QAbstractNativeEventFilter
+//#endif
 {
 	Q_OBJECT
 
@@ -87,7 +87,7 @@ private:
 	void saveState(int);
 	void toggleFullscreen();
 #ifdef DEBUGGER_INCLUDED
-	bool nativeEventFilter(const QByteArray&, void*, long*) Q_DECL_OVERRIDE;
+	//bool nativeEventFilter(const QByteArray&, void*, long*) Q_DECL_OVERRIDE;
 #endif
 
 	Ui::MainWindow* ui;
@@ -113,8 +113,9 @@ private:
 	CScreenShotUtils::Connection m_screenShotCompleteConnection;
 
 #ifdef DEBUGGER_INCLUDED
-	std::unique_ptr<CDebugger> m_debugger;
-	std::unique_ptr<CFrameDebugger> m_frameDebugger;
+	//std::unique_ptr<CDebugger> m_debugger;
+	//std::unique_ptr<CFrameDebugger> m_frameDebugger;
+	CDebugger* m_debugger;
 	Ui::DebugMenu* debugMenuUi = nullptr;
 #endif
 
